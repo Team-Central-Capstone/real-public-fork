@@ -1,0 +1,168 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "copy settings files",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/server/Real.Shared/"
+            },
+            "command": "cp appsettings*.json \"${workspaceFolder}/server/Real.Web/bin/Debug/net5.0/\"",
+            "problemMatcher": []
+        },
+        {
+            "label": "_publish",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/server/Real.Web/"
+            },
+            "command": "dotnet publish -r linux-x64 --self-contained false"
+        },
+        {
+            "label": "_zip",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/server/Real.Web/bin/Debug/net5.0/linux-x64/publish"
+            },
+            "command": "(rm \"archive.zip\" || true) && zip -r -X \"archive.zip\" ."
+        },
+        {
+            "label": "_opendir",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/server/Real.Web/bin/Debug/net5.0/linux-x64/publish"
+            },
+            "command": "open ."
+        },
+        {
+            "label": "Publish",
+            "dependsOn": [
+                "_publish",
+                "_zip",
+                "_opendir"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": []
+        },
+        {
+            "label": "Clean Web Project",
+            "command": "dotnet",
+            "type": "process",
+            "options": {
+                "cwd": "${workspaceFolder}/server/Real.Web"
+            },
+            "args": [
+                "clean"
+            ]
+        },
+        {
+            "label": "build",
+            "dependsOn": [],
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/server/Real.Web/Real.Web.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "buildTests",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/server/Real.Tests/Real.Tests.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "run tests",
+            "command": "dotnet",
+            "type": "process",
+            "options": {
+                "cwd": "${workspaceFolder}/server/Real.Tests/"
+            },
+            "args": [
+                "test",
+                "Real.Tests.csproj",
+                "/p:CollectCoverage=true",
+                "/p:CoverletOutputFormat=cobertura",
+                "/p:Exclude=\"[*Tests]*\""
+            ]
+        },
+        {
+            "label": "Generate Coverage Reports",
+            "dependsOn": [
+                "run tests"
+            ],
+            "command": "reportgenerator",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/server/Real.Tests/"
+            },
+            "args": [
+                "-reports:\"**/coverage*.xml\"",
+                "-targetdir:\"TestResultReports\"",
+                "-reporttypes:Html",
+                "-classfilters:\"-Real.Data.Migrations.*;-Real.Tests.*\""
+            ]
+        },
+        {
+            "type": "docker-build",
+            "label": "docker-build: debug",
+            "dependsOn": [
+                "build"
+            ],
+            "dockerBuild": {
+                "tag": "real:dev",
+                "target": "base",
+                "dockerfile": "${workspaceFolder}/server/Real.Web/Dockerfile",
+                "context": "${workspaceFolder}",
+                "pull": true
+            },
+            "netCore": {
+                "appProject": "${workspaceFolder}/server/Real.Web/Real.Web.csproj"
+            }
+        },
+        {
+            "type": "docker-build",
+            "label": "docker-build: release",
+            "dependsOn": [
+                "build"
+            ],
+            "dockerBuild": {
+                "tag": "real:latest",
+                "dockerfile": "${workspaceFolder}/server/Real.Web/Dockerfile",
+                "context": "${workspaceFolder}",
+                "pull": true
+            },
+            "netCore": {
+                "appProject": "${workspaceFolder}/server/Real.Web/Real.Web.csproj"
+            }
+        },
+        {
+            "type": "docker-run",
+            "label": "docker-run: debug",
+            "dependsOn": [
+                "docker-build: debug"
+            ],
+            "dockerRun": {},
+            "netCore": {
+                "appProject": "${workspaceFolder}/server/Real.Web/Real.Web.csproj",
+                "enableDebugging": true
+            }
+        },
+        {
+            "type": "docker-run",
+            "label": "docker-run: release",
+            "dependsOn": [
+                "docker-build: release"
+            ],
+            "dockerRun": {},
+            "netCore": {
+                "appProject": "${workspaceFolder}/server/Real.Web/Real.Web.csproj"
+            }
+        }
+    ]
+}

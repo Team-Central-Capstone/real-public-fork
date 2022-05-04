@@ -1,0 +1,226 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+
+\algnewcommand\algorithmicforeach{\textbf{for each}}
+\algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
+
+\title{Algorithms}
+\author{Dan Champagne}
+\date{April 2022}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+
+\begin{algorithm}
+    \caption{Seed Algorithm: User Profile Setup $$ \mathcal{O}(n*q) \approx \mathcal{O}(n) $$} 
+    \label{alg:cap}
+    \begin{algorithmic}
+        \\
+        \Require $users \gets \text{List of user names}$
+        \Require $questions \gets \text{All possible survey questions}$
+        \Ensure $users > 0$
+        \Ensure $questions > 0$
+        \\
+        \ForAll {$users$}
+            \ForAll {$questions$}
+                \If {QuestionType = MultipleChoice}
+                    \ForAll {possible answers to question}
+                        \If{random number is even}
+                            \State $selectedAnswers \gets selectedAnswers + answer $
+                        \EndIf
+                        \If{$selectedAnswers is empty$}
+                            \State $selectedAnswers \gets first possible answer $
+                        \EndIf
+                    \EndFor
+                \EndIf
+                \If {QuestionType = SingleChoice}
+                    \State $selectedAnswer \gets \text{random answer}$
+                \EndIf
+                \If {QuestionType = YesNo}
+                    \If{random number is even}
+                        \State $selectedAnswers \gets "Yes" $
+                    \Else
+                        \State $selectedAnswers \gets "No" $
+                    \EndIf
+                \EndIf
+            \EndFor
+            \\
+            \State execute sp\_RecalculateProfileMatch($user$)
+        \EndFor
+    \end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}
+    \caption{Seed Algorithm: Location Data $$ \mathcal{O}(u*L + 2L) \approx \mathcal{O}(n^2) $$} 
+    \label{alg:cap}
+    \begin{algorithmic}
+        \\
+        \Require $users \gets \text{List of user without any location records}$
+        \\
+        \State $[Min,Max] Latitude \gets [41.383920730000604, 42.0420540561665]$
+        \State $[Min,Max] Longitude \gets [-71.90395649891572, -73.48324099819017]$
+        \State $[Min,Max] PositionVariability = [0.000001, 0.01]$
+        \State $MaxLocations \gets 100000$
+        \State $TimeVariabilityMinutes \gets 1$
+        \\
+        \State $startTime \gets current time$
+        
+        \\
+        \ForAll {$users$}
+            \State $buffer \gets \{\}$
+            \State $t \gets startTime$
+            \State $position \gets (0,0)$
+            \For{$i \gets 1$ to $MaxLocations$}
+                \If{$position = (0,0) $}
+                    \State $position \gets \text{random values between min/max latitude/longitude}$
+                \Else
+                    \State $r \gets \text{random number}$
+                    \If{$r \text{ is even}$}
+                        \State $lat \gets \text{random double between min/max PositionVariability}$
+                        \State $lon \gets \text{random double between min/max PositionVariability}$
+                        \If{$random \text{ is even}$}
+                            \State $position.Latitude \gets position.Latitude + lat $
+                        \Else
+                            \State $position.Latitude \gets position.Latitude - lat $
+                        \EndIf
+                        \If{$random \text{ is even}$}
+                            \State $position.Longitude \gets position.Longitude + lon $
+                        \Else
+                            \State $position.Longitude \gets position.Longitude - lon $
+                        \EndIf
+                    \EndIf
+                    
+                    \State $buffer \gets \text{generated location}$
+                    \State $t \gets t + TimeVariabilityMinutes $
+                \EndIf
+            \EndFor
+            \ForAll{$locations \text{ in buffer}$}
+                \State $location_i \gets \text{calculated speed from } location_i_-_1 $
+                \State $location_i \gets \text{calculated rolling average speed from } location_i_-_1 \text{ to } location_i_-_1_0 $
+            \EndFor
+            
+            \State execute sp\_ProcessLocationRecord($buffer$)
+        \EndFor
+    \end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}
+    \caption{GPS Coordinate pre-calculation $$ \mathcal{O}(n + p) \approx \mathcal{O}(n) $$} 
+    \label{alg:cap}
+    \begin{algorithmic}
+        \Require $C \gets \text{decimal places to round to}$
+        \\
+        \ForEach {$ \text{inserted location record} $}
+        
+            \\
+            \State $lastRollupRecord \gets \text{last roll-up record for current user}$
+            \State $lastLocationRecord \gets \text{last location record for current user}$
+            \State $lastTenLocationRecord \gets \text{last 10 location record for current user}$
+            
+            \\
+            \State $currentRecord.Latitide \gets currentRecord.Latitide \text{ rounded to } C \text{ decimal places}$
+            \State $currentRecord.Longitude \gets currentRecord.Longitude \text{ rounded to } C \text{ decimal places}$
+            \State $speedFromLast \gets \text{MPH between } currentRecord \text{ and } lastLocationRecord $
+            \State $rollingAverage \gets \text{average MPH from } lastTenLocationRecord$
+            
+            \\
+            \If{$lastRollupRecord \text{ is null}$}
+                \State $Precalc\_Locations \text{ table} \gets currentRecord $
+            \ElsIf{$speedFromLast \textbf{ between } (0.5 * rollingAverage) \textbf{ and } (1.5 * rollingAverage)$}
+                \If {$lastRollupRecord.Latitude = currentRecord.Latitude \textbf{ and } lastRollupRecord.Longitude = currentRecord.Longitude $}
+                    \State $lastRollupRecord.EndTime \gets currentRecord.Timestamp $
+                \Else
+                    \State $Precalc\_Locations \text{ table} \gets currentRecord $
+                \EndIf
+            \EndIf
+            
+        \EndFor
+    \end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}
+    \caption{Profile Match pre-calculation $$ \mathcal{O}(n + n*q) \approx \mathcal{O}(n) $$} 
+    \label{alg:cap}
+    \begin{algorithmic}
+        \Require $L \gets \text{Survey responses for current user}$
+        \Require $R \gets \text{Survey responses for all other user}$
+        
+        \\
+        \State $Rows \gets L \text{ joined to } R \text{ on } QuestionId$
+
+        \\
+        \ForEach{$row \textbf{ in } Rows$}
+            \If{$\text{both users' responses match}$}
+                \State $row.ResponsesMatch \gets True$
+                \If{$\text{both users' response weight matches}$}
+                    \State $row.Scale \gets 1.0$
+                \Else
+                    % \State $row.Scale \gets (\textit{max weight} - (\textit{L.weight} - \textit{R.weight})) / \textit{max weight}$
+                    \State $row.Scale \gets \frac{\textit{max weight} - (\textit{L.weight} - \textit{R.weight})}{\textit{max weight}}$
+                \EndIf
+            \EndIf
+        \EndFor
+        
+        \\
+        \State Summarize Results and store in Precalc\_ProfileMatches:
+        
+        \\
+        \ForEach{$\textit{user pair} \textbf{ in } Rows$}
+            \State $Q \gets \text{Total number of questions}$
+            \State $M \gets \text{Total number of matched questions}$
+            \State $RawMatchPercentage \gets \frac{M}{Q}$
+            \State $WeightedMatchPercentage \gets \frac{user.Scale * M}{Q}$
+            
+            \\
+            \State $Precalc\_ProfileMatches \gets currentRecord$
+        \EndFor
+        
+    \end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}
+    \caption{Final User Match Algorithm $$ \approx \mathcal{O}(n^2) $$} 
+    \label{alg:cap}
+    \begin{algorithmic}
+        \State $\textbf{Require parameter: } UserId $
+        \State $\textbf{Require parameter: } StateDate $
+        \State $\textbf{Require parameter: } EndDate $
+        \State $\textbf{Require parameter: } MinDistance $
+        \State $\textbf{Require parameter: } MinTime $
+        
+        \\
+        \State $L \gets \text{rows from} Precalc\_Locations \text{ for } UserId \text{ between } StartDate \text{ and } EndDate$
+        \State $R \gets \text{rows from} Precalc\_Locations \text{ for all other users between } StartDate \text{ and } EndDate$
+        \State $X \gets L \text{ joined to } R \text{ on } \textit{overlapping times}$
+        
+        \\
+        \ForEach{$row \textbf{ in } X$}
+            \State $row.Distance \gets \text{arc distance between } L \text{ and } R$
+            \State $row.OverlapTime \gets \text{time between } L \text{ and } R$
+        \EndFor
+        
+        \\
+        \State $Results \gets X \text{ filtered by:}$
+        {
+            \obeylines
+            \obeyspaces
+            $Distance \leq \textit{MinDistance}$
+            $OverlapTime \geq \textit{MinTime}$
+            $\text{Genders are mutually attracted}$
+        }
+        
+    \end{algorithmic}
+\end{algorithm}
+
+
+\end{document}

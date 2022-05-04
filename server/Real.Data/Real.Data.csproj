@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>23855cc9-cfc1-404b-ad52-26b0d631595d</UserSecretsId>
+    <LangVersion>10.0</LangVersion>
+  </PropertyGroup>
+
+  <!-- <Target Name="CopyAppSettings" BeforeTargets="Build">
+    <PropertyGroup>
+      <AppSettingsDirectory>$(ProjectDir)../Real.Shared/</AppSettingsDirectory>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <AppSettingFiles Include="$(AppSettingsDirectory)*.*" />
+    </ItemGroup>
+
+    <Message Text="files = $(AppSettingFiles)" Importance="High" />
+    <Message Text="ASD   = $(AppSettingsDirectory)" Importance="High" />
+    <Copy SourceFiles="$(AppSettingFiles)" DestinationFolder="$(TargetDir)" />
+  </Target> -->
+
+  <!-- <Target Name="CleanOutputDirectories" AfterTargets="Clean">
+    <RemoveDir Directories="$(TargetDir)" />
+    <RemoveDir Directories="$(BaseIntermediateOutputPath)" />
+  </Target> -->
+  
+  <ItemGroup>
+    <InternalsVisibleTo Include="Real.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.11" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Toolbelt.EntityFrameworkCore.IndexAttribute" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Real.Model/Real.Model.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,14 @@
+cd Real.Model
+dotnet clean
+
+cd ..
+cd Real.Data
+dotnet clean
+
+cd ..
+cd Real.Web
+dotnet clean
+
+cd ..
+cd Real.Tests
+dotnet clean

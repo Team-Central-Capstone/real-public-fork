@@ -1,0 +1,366 @@
+TABLE_CATALOG,TABLE_SCHEMA,TABLE_NAME,TABLE_TYPE,ENGINE,VERSION,ROW_FORMAT,TABLE_ROWS,AVG_ROW_LENGTH,DATA_LENGTH,MAX_DATA_LENGTH,INDEX_LENGTH,DATA_FREE,AUTO_INCREMENT,CREATE_TIME,UPDATE_TIME,CHECK_TIME,TABLE_COLLATION,CHECKSUM,CREATE_OPTIONS,TABLE_COMMENT
+def,mysql,columns_priv,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_bin,NULL,"row_format=DYNAMIC stats_persistent=0","Column privileges"
+def,mysql,component,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,4194304,1,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,row_format=DYNAMIC,Components
+def,mysql,db,"BASE TABLE",InnoDB,10,Dynamic,3,5461,16384,0,16384,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_bin,NULL,"row_format=DYNAMIC stats_persistent=0","Database privileges"
+def,mysql,default_roles,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_bin,NULL,"row_format=DYNAMIC stats_persistent=0","Default roles"
+def,mysql,engine_cost,"BASE TABLE",InnoDB,10,Dynamic,2,8192,16384,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0",
+def,mysql,func,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_bin,NULL,"row_format=DYNAMIC stats_persistent=0","User defined functions"
+def,mysql,general_log,"BASE TABLE",CSV,10,Dynamic,2,0,0,0,0,0,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,,"General log"
+def,mysql,general_log_template,"BASE TABLE",CSV,10,Dynamic,2,0,0,0,0,0,NULL,"2021-11-27 00:13:33",NULL,NULL,utf8_general_ci,NULL,,"General log"
+def,mysql,global_grants,"BASE TABLE",InnoDB,10,Dynamic,41,399,16384,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_bin,NULL,"row_format=DYNAMIC stats_persistent=0","Extended global grants"
+def,mysql,gtid_executed,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8mb4_0900_ai_ci,NULL,row_format=DYNAMIC,
+def,mysql,help_category,"BASE TABLE",InnoDB,10,Dynamic,51,321,16384,0,16384,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0","help categories"
+def,mysql,help_keyword,"BASE TABLE",InnoDB,10,Dynamic,821,139,114688,0,131072,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0","help keywords"
+def,mysql,help_relation,"BASE TABLE",InnoDB,10,Dynamic,1830,44,81920,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0","keyword-topic relation"
+def,mysql,help_topic,"BASE TABLE",InnoDB,10,Dynamic,382,4160,1589248,0,98304,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0","help topics"
+def,mysql,innodb_index_stats,"BASE TABLE",InnoDB,10,Dynamic,257,191,49152,0,0,4194304,NULL,"2021-02-23 20:24:43","2022-04-23 23:08:44",NULL,utf8_bin,NULL,"row_format=DYNAMIC stats_persistent=0",
+def,mysql,innodb_table_stats,"BASE TABLE",InnoDB,10,Dynamic,37,442,16384,0,0,4194304,NULL,"2021-02-23 20:24:43","2022-04-23 23:08:44",NULL,utf8_bin,NULL,"row_format=DYNAMIC stats_persistent=0",
+def,mysql,password_history,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_bin,NULL,"row_format=DYNAMIC stats_persistent=0","Password history for user accounts"
+def,mysql,plugin,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0","MySQL plugins"
+def,mysql,procs_priv,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,16384,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_bin,NULL,"row_format=DYNAMIC stats_persistent=0","Procedure privileges"
+def,mysql,proxies_priv,"BASE TABLE",InnoDB,10,Dynamic,1,16384,16384,0,16384,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_bin,NULL,"row_format=DYNAMIC stats_persistent=0","User proxy privileges"
+def,mysql,rds_configuration,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,0,NULL,"2021-02-23 20:24:53",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,mysql,rds_global_status_history,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,0,NULL,"2021-02-23 20:24:53",NULL,NULL,latin1_swedish_ci,NULL,,
+def,mysql,rds_global_status_history_old,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,0,NULL,"2021-02-23 20:24:53",NULL,NULL,latin1_swedish_ci,NULL,,
+def,mysql,rds_heartbeat2,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,0,NULL,"2021-11-27 00:13:33","2022-04-24 00:25:46",NULL,utf8mb4_0900_ai_ci,NULL,,
+def,mysql,rds_history,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,0,NULL,"2021-02-23 20:24:53",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,mysql,rds_replication_status,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,0,NULL,"2021-02-23 20:24:53",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,mysql,rds_sysinfo,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,0,NULL,"2021-11-27 00:13:53","2022-04-23 10:30:48",NULL,utf8mb4_0900_ai_ci,NULL,,
+def,mysql,replication_asynchronous_connection_failover,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,16384,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0","The source configuration details"
+def,mysql,replication_asynchronous_connection_failover_managed,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0","The managed source configuration details"
+def,mysql,role_edges,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_bin,NULL,"row_format=DYNAMIC stats_persistent=0","Role hierarchy and role grants"
+def,mysql,server_cost,"BASE TABLE",InnoDB,10,Dynamic,6,2730,16384,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0",
+def,mysql,servers,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0","MySQL Foreign Servers table"
+def,mysql,slave_master_info,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,4194304,NULL,"2021-11-27 00:13:33",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0","Master Information"
+def,mysql,slave_relay_log_info,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0","Relay Log Information"
+def,mysql,slave_worker_info,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0","Worker Information"
+def,mysql,slow_log,"BASE TABLE",CSV,10,Dynamic,2,0,0,0,0,0,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,,"Slow log"
+def,mysql,slow_log_template,"BASE TABLE",CSV,10,Dynamic,2,0,0,0,0,0,NULL,"2021-11-27 00:13:33",NULL,NULL,utf8_general_ci,NULL,,"Slow log"
+def,mysql,tables_priv,"BASE TABLE",InnoDB,10,Dynamic,2,8192,16384,0,16384,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_bin,NULL,"row_format=DYNAMIC stats_persistent=0","Table privileges"
+def,mysql,time_zone,"BASE TABLE",InnoDB,10,Dynamic,1429,57,81920,0,0,4194304,1784,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0","Time zones"
+def,mysql,time_zone_leap_second,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0","Leap seconds information for time zones"
+def,mysql,time_zone_name,"BASE TABLE",InnoDB,10,Dynamic,804,305,245760,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0","Time zone names"
+def,mysql,time_zone_transition,"BASE TABLE",InnoDB,10,Dynamic,119074,39,4734976,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0","Time zone transitions"
+def,mysql,time_zone_transition_type,"BASE TABLE",InnoDB,10,Dynamic,9025,45,409600,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_general_ci,NULL,"row_format=DYNAMIC stats_persistent=0","Time zone transition types"
+def,mysql,user,"BASE TABLE",InnoDB,10,Dynamic,5,3276,16384,0,0,4194304,NULL,"2021-02-23 20:24:45",NULL,NULL,utf8_bin,NULL,"row_format=DYNAMIC stats_persistent=0","Users and global privileges"
+def,information_schema,ADMINISTRABLE_ROLE_AUTHORIZATIONS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:47",NULL,NULL,NULL,NULL,,
+def,information_schema,APPLICABLE_ROLES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:47",NULL,NULL,NULL,NULL,,
+def,information_schema,CHARACTER_SETS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,CHECK_CONSTRAINTS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,COLLATIONS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,COLLATION_CHARACTER_SET_APPLICABILITY,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,COLUMNS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,COLUMNS_EXTENSIONS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,COLUMN_PRIVILEGES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,COLUMN_STATISTICS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,ENABLED_ROLES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:47",NULL,NULL,NULL,NULL,,
+def,information_schema,ENGINES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,EVENTS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,FILES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_BUFFER_PAGE,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_BUFFER_PAGE_LRU,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_BUFFER_POOL_STATS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_CACHED_INDEXES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_CMP,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_CMPMEM,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_CMPMEM_RESET,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_CMP_PER_INDEX,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_CMP_PER_INDEX_RESET,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_CMP_RESET,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_COLUMNS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_DATAFILES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_FIELDS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_FOREIGN,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_FOREIGN_COLS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_FT_BEING_DELETED,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_FT_CONFIG,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_FT_DEFAULT_STOPWORD,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_FT_DELETED,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_FT_INDEX_CACHE,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_FT_INDEX_TABLE,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_INDEXES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_METRICS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_SESSION_TEMP_TABLESPACES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_TABLES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_TABLESPACES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_TABLESPACES_BRIEF,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_TABLESTATS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_TEMP_TABLE_INFO,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_TRX,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,INNODB_VIRTUAL,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:49",NULL,NULL,NULL,NULL,,
+def,information_schema,KEYWORDS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,KEY_COLUMN_USAGE,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,OPTIMIZER_TRACE,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,PARAMETERS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,PARTITIONS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,PLUGINS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,PROCESSLIST,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,PROFILING,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,RDS_EVENTS_THREADS_WAITS_CURRENT,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-11-27 00:13:31",NULL,NULL,NULL,NULL,,
+def,information_schema,RDS_PROCESSLIST,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-11-27 00:13:31",NULL,NULL,NULL,NULL,,
+def,information_schema,REFERENTIAL_CONSTRAINTS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,RESOURCE_GROUPS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,ROLE_COLUMN_GRANTS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:47",NULL,NULL,NULL,NULL,,
+def,information_schema,ROLE_ROUTINE_GRANTS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:47",NULL,NULL,NULL,NULL,,
+def,information_schema,ROLE_TABLE_GRANTS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:47",NULL,NULL,NULL,NULL,,
+def,information_schema,ROUTINES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,SCHEMATA,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,SCHEMATA_EXTENSIONS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,SCHEMA_PRIVILEGES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,STATISTICS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,ST_GEOMETRY_COLUMNS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,ST_SPATIAL_REFERENCE_SYSTEMS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,ST_UNITS_OF_MEASURE,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,TABLES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,TABLESPACES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,TABLESPACES_EXTENSIONS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,TABLES_EXTENSIONS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,TABLE_CONSTRAINTS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,TABLE_CONSTRAINTS_EXTENSIONS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,TABLE_PRIVILEGES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,TRIGGERS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,USER_ATTRIBUTES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:47",NULL,NULL,NULL,NULL,,
+def,information_schema,USER_PRIVILEGES,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,VIEWS,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,VIEW_ROUTINE_USAGE,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,information_schema,VIEW_TABLE_USAGE,"SYSTEM VIEW",NULL,10,NULL,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,NULL,NULL,,
+def,performance_schema,accounts,"BASE TABLE",PERFORMANCE_SCHEMA,10,Fixed,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,binary_log_transaction_compression_stats,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,cond_instances,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,data_lock_waits,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,99999,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,data_locks,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,99999,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,error_log,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,13,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_errors_summary_by_account_by_error,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_errors_summary_by_host_by_error,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_errors_summary_by_thread_by_error,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_errors_summary_by_user_by_error,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_errors_summary_global_by_error,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_stages_current,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_stages_history,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_stages_history_long,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_stages_summary_by_account_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_stages_summary_by_host_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_stages_summary_by_thread_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_stages_summary_by_user_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_stages_summary_global_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_statements_current,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_statements_histogram_by_digest,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_statements_histogram_global,"BASE TABLE",PERFORMANCE_SCHEMA,10,Fixed,450,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_statements_history,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_statements_history_long,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_statements_summary_by_account_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_statements_summary_by_digest,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_statements_summary_by_host_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_statements_summary_by_program,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_statements_summary_by_thread_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_statements_summary_by_user_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_statements_summary_global_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_transactions_current,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_transactions_history,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_transactions_history_long,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_transactions_summary_by_account_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_transactions_summary_by_host_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_transactions_summary_by_thread_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_transactions_summary_by_user_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_transactions_summary_global_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,1,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_waits_current,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_waits_history,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_waits_history_long,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_waits_summary_by_account_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_waits_summary_by_host_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_waits_summary_by_instance,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_waits_summary_by_thread_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_waits_summary_by_user_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,events_waits_summary_global_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,4,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,file_instances,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,file_summary_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,file_summary_by_instance,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,global_status,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,177,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,global_variables,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,596,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,host_cache,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,668,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,hosts,"BASE TABLE",PERFORMANCE_SCHEMA,10,Fixed,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,keyring_keys,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,96,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_bin,NULL,,
+def,performance_schema,log_status,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,1,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,memory_summary_by_account_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,memory_summary_by_host_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,memory_summary_by_thread_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,memory_summary_by_user_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,memory_summary_global_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,metadata_locks,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,mutex_instances,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,objects_summary_global_by_type,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,performance_timers,"BASE TABLE",PERFORMANCE_SCHEMA,10,Fixed,4,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,persisted_variables,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,prepared_statements_instances,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,processlist,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,replication_applier_configuration,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,256,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,replication_applier_filters,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,replication_applier_global_filters,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,1,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,replication_applier_status,"BASE TABLE",PERFORMANCE_SCHEMA,10,Fixed,256,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,replication_applier_status_by_coordinator,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,256,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,replication_applier_status_by_worker,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,8192,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,replication_asynchronous_connection_failover,"BASE TABLE",PERFORMANCE_SCHEMA,10,Fixed,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,replication_asynchronous_connection_failover_managed,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,replication_connection_configuration,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,256,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,replication_connection_status,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,256,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,replication_group_member_stats,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,replication_group_members,"BASE TABLE",PERFORMANCE_SCHEMA,10,Fixed,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,rwlock_instances,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,session_account_connect_attrs,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_bin,NULL,,
+def,performance_schema,session_connect_attrs,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_bin,NULL,,
+def,performance_schema,session_status,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,177,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,session_variables,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,596,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,setup_actors,"BASE TABLE",PERFORMANCE_SCHEMA,10,Fixed,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,setup_consumers,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,15,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,setup_instruments,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,6,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,setup_objects,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,setup_threads,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,socket_instances,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,socket_summary_by_event_name,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,socket_summary_by_instance,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,status_by_account,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,status_by_host,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,status_by_thread,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,status_by_user,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,table_handles,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,table_io_waits_summary_by_index_usage,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,table_io_waits_summary_by_table,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,table_lock_waits_summary_by_table,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,threads,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,tls_channel_status,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,96,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,user_defined_functions,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,7,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,user_variables_by_thread,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,users,"BASE TABLE",PERFORMANCE_SCHEMA,10,Fixed,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,variables_by_thread,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,0,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,performance_schema,variables_info,"BASE TABLE",PERFORMANCE_SCHEMA,10,Dynamic,596,0,0,0,0,0,NULL,"2021-02-23 20:24:44",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,sys,host_summary,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,host_summary_by_file_io,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,host_summary_by_file_io_type,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,host_summary_by_stages,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,host_summary_by_statement_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,host_summary_by_statement_type,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,innodb_buffer_stats_by_schema,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,innodb_buffer_stats_by_table,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,innodb_lock_waits,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,io_by_thread_by_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,io_global_by_file_by_bytes,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,io_global_by_file_by_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,io_global_by_wait_by_bytes,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,io_global_by_wait_by_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,latest_file_io,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,memory_by_host_by_current_bytes,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,memory_by_thread_by_current_bytes,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,memory_by_user_by_current_bytes,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,memory_global_by_current_bytes,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,memory_global_total,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,metrics,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,processlist,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,ps_check_lost_instrumentation,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,schema_auto_increment_columns,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,schema_index_statistics,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,schema_object_overview,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,schema_redundant_indexes,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,schema_table_lock_waits,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,schema_table_statistics,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,schema_table_statistics_with_buffer,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,schema_tables_with_full_table_scans,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,schema_unused_indexes,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,session,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,session_ssl_status,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,statement_analysis,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,statements_with_errors_or_warnings,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,statements_with_full_table_scans,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,statements_with_runtimes_in_95th_percentile,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,statements_with_sorting,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,statements_with_temp_tables,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,sys_config,"BASE TABLE",InnoDB,10,Dynamic,6,2730,16384,0,0,0,NULL,"2021-02-23 20:24:46",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,sys,user_summary,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,user_summary_by_file_io,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,user_summary_by_file_io_type,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,user_summary_by_stages,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,user_summary_by_statement_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,user_summary_by_statement_type,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,version,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,wait_classes_global_by_avg_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,wait_classes_global_by_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,waits_by_host_by_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,waits_by_user_by_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,waits_global_by_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$host_summary,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$host_summary_by_file_io,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$host_summary_by_file_io_type,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$host_summary_by_stages,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$host_summary_by_statement_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$host_summary_by_statement_type,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$innodb_buffer_stats_by_schema,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$innodb_buffer_stats_by_table,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$innodb_lock_waits,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$io_by_thread_by_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$io_global_by_file_by_bytes,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$io_global_by_file_by_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$io_global_by_wait_by_bytes,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$io_global_by_wait_by_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$latest_file_io,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$memory_by_host_by_current_bytes,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$memory_by_thread_by_current_bytes,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$memory_by_user_by_current_bytes,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$memory_global_by_current_bytes,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$memory_global_total,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$processlist,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$ps_digest_95th_percentile_by_avg_us,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$ps_digest_avg_latency_distribution,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$ps_schema_table_statistics_io,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$schema_flattened_keys,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$schema_index_statistics,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$schema_table_lock_waits,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$schema_table_statistics,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$schema_table_statistics_with_buffer,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$schema_tables_with_full_table_scans,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$session,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$statement_analysis,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$statements_with_errors_or_warnings,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$statements_with_full_table_scans,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$statements_with_runtimes_in_95th_percentile,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$statements_with_sorting,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$statements_with_temp_tables,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$user_summary,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$user_summary_by_file_io,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$user_summary_by_file_io_type,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$user_summary_by_stages,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$user_summary_by_statement_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$user_summary_by_statement_type,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$wait_classes_global_by_avg_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$wait_classes_global_by_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$waits_by_host_by_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$waits_by_user_by_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,sys,x$waits_global_by_latency,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2021-02-23 20:24:46",NULL,NULL,NULL,NULL,NULL,VIEW
+def,capstone,AnalyticDetails,"BASE TABLE",InnoDB,10,Dynamic,3801,418,1589248,0,0,4194304,NULL,"2022-03-04 02:35:30","2022-04-23 08:22:48",NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,AnalyticErrors,"BASE TABLE",InnoDB,10,Dynamic,616,4282,2637824,0,0,4194304,NULL,"2022-03-04 02:29:50","2022-04-23 08:22:48",NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,Analytics,"BASE TABLE",InnoDB,10,Dynamic,9095,405,3686400,0,0,4194304,NULL,"2022-03-04 02:35:30","2022-04-23 08:22:48",NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,AppSettings,"BASE TABLE",InnoDB,10,Dynamic,1,16384,16384,0,0,0,3,"2022-02-27 03:20:03","2022-04-17 07:38:52",NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,Capstone_Information_Schema_Columns,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2022-01-22 02:06:48",NULL,NULL,NULL,NULL,NULL,VIEW
+def,capstone,Capstone_Information_Schema_Tables,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2022-01-22 02:20:16",NULL,NULL,NULL,NULL,NULL,VIEW
+def,capstone,Emails,"BASE TABLE",InnoDB,10,Dynamic,341,864,294912,0,0,0,363,"2022-03-06 01:01:35",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,Locations,"BASE TABLE",InnoDB,10,Dynamic,5052889,112,568328192,0,1021313024,7340032,5531721,"2022-03-28 02:08:11","2022-04-23 23:08:51",NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,Precalc_Locations,"BASE TABLE",InnoDB,10,Dynamic,271142,102,27852800,0,48660480,25165824,289130,"2022-04-05 22:06:39","2022-04-23 23:08:51",NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,Precalc_ProfileMatches,"BASE TABLE",InnoDB,10,Dynamic,292533,104,30490624,0,29245440,275775488,4583537,"2022-03-22 01:30:31","2022-04-23 23:08:51",NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,SurveyAnswerUserSurveyResponse,"BASE TABLE",InnoDB,10,Dynamic,6346,56,360448,0,147456,0,NULL,"2022-01-16 00:56:25","2022-04-23 22:44:17",NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,SurveyAnswers,"BASE TABLE",InnoDB,10,Dynamic,34,481,16384,0,16384,0,62,"2021-11-27 15:59:34",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,SurveyQuestions,"BASE TABLE",InnoDB,10,Dynamic,17,963,16384,0,0,0,32,"2022-01-23 02:47:16",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,UserAttractedGenders,"BASE TABLE",InnoDB,10,Dynamic,1749,56,98304,0,49152,0,NULL,"2022-03-02 02:10:55","2022-04-23 23:08:51",NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,UserBlocks,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,32768,0,1,"2022-01-27 01:04:17",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,UserBodyTypes,"BASE TABLE",InnoDB,10,Dynamic,6,2730,16384,0,0,0,7,"2022-02-27 22:26:34",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,UserGenders,"BASE TABLE",InnoDB,10,Dynamic,3,5461,16384,0,0,0,4,"2022-03-02 02:10:54",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,UserImages,"BASE TABLE",InnoDB,10,Dynamic,4,913408,3653632,0,16384,0,65,"2022-01-22 01:45:32","2022-04-23 22:44:17",NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,UserMatches,"BASE TABLE",InnoDB,10,Dynamic,3361,77,262144,0,163840,0,4698,"2022-04-18 23:32:40","2022-04-23 23:08:51",NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,UserMessages,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,32768,0,1,"2022-01-27 01:04:18",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,UserSurveyResponses,"BASE TABLE",InnoDB,10,Dynamic,9779,43,425984,0,704512,4194304,79857,"2022-03-22 01:35:29","2022-04-23 23:08:51",NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,Users,"BASE TABLE",InnoDB,10,Dynamic,1042,157,163840,0,98304,0,9488,"2022-03-27 01:41:43","2022-04-23 23:08:51",NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,__EFMigrationsHistory,"BASE TABLE",InnoDB,10,Dynamic,39,420,16384,0,0,0,NULL,"2021-11-27 15:59:33","2022-04-18 18:36:08",NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone,v_UserMatches,VIEW,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"2022-03-12 14:43:56",NULL,NULL,NULL,NULL,NULL,VIEW
+def,capstone_hc,Configurations,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,0,2,"2022-01-29 16:47:42",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone_hc,Executions,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,0,0,2,"2022-01-29 16:47:42",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone_hc,Failures,"BASE TABLE",InnoDB,10,Dynamic,341,48,16384,0,0,0,363,"2022-01-29 16:47:42",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone_hc,HealthCheckExecutionEntries,"BASE TABLE",InnoDB,10,Dynamic,2,8192,16384,0,16384,0,565,"2022-01-29 16:47:43",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone_hc,HealthCheckExecutionHistories,"BASE TABLE",InnoDB,10,Dynamic,0,0,16384,0,16384,0,1,"2022-01-29 16:47:43",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,
+def,capstone_hc,__EFMigrationsHistory,"BASE TABLE",InnoDB,10,Dynamic,2,8192,16384,0,0,0,NULL,"2022-01-29 16:47:41",NULL,NULL,utf8mb4_0900_ai_ci,NULL,,

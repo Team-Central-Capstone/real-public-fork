@@ -1,0 +1,169 @@
+@model ErrorViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="x-apple-disable-message-reformatting">
+    <title></title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style type="text/css">
+        body {{
+            --bs-blue: #375a7f;
+            --bs-indigo: #6610f2;
+            --bs-purple: #6f42c1;
+            --bs-pink: #e83e8c;
+            --bs-red: #e74c3c;
+            --bs-orange: #fd7e14;
+            --bs-yellow: #f39c12;
+            --bs-green: #00bc8c;
+            --bs-teal: #20c997;
+            --bs-cyan: #3498db;
+            --bs-white: #fff;
+            --bs-gray: #888;
+            --bs-gray-dark: #303030;
+            --bs-gray-100: #f8f9fa;
+            --bs-gray-200: #ebebeb;
+            --bs-gray-300: #dee2e6;
+            --bs-gray-400: #ced4da;
+            --bs-gray-500: #adb5bd;
+            --bs-gray-600: #888;
+            --bs-gray-700: #444;
+            --bs-gray-800: #303030;
+            --bs-gray-900: #222;
+            --bs-primary: #375a7f;
+            --bs-secondary: #444;
+            --bs-success: #00bc8c;
+            --bs-info: #3498db;
+            --bs-warning: #f39c12;
+            --bs-danger: #e74c3c;
+            --bs-light: #adb5bd;
+            --bs-dark: #303030;
+            --bs-primary-rgb: 55,90,127;
+            --bs-secondary-rgb: 68,68,68;
+            --bs-success-rgb: 0,188,140;
+            --bs-info-rgb: 52,152,219;
+            --bs-warning-rgb: 243,156,18;
+            --bs-danger-rgb: 231,76,60;
+            --bs-light-rgb: 173,181,189;
+            --bs-dark-rgb: 48,48,48;
+            --bs-white-rgb: 255,255,255;
+            --bs-black-rgb: 0,0,0;
+            --bs-body-color-rgb: 255,255,255;
+            --bs-body-bg-rgb: 34,34,34;
+            --bs-font-sans-serif: Lato,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            --bs-font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+            --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+            --bs-body-font-family: var(--bs-font-sans-serif);
+            --bs-body-font-size: 1rem;
+            --bs-body-font-weight: 400;
+            --bs-body-line-height: 1.5;
+            --bs-body-color: #fff;
+            --bs-body-bg: #222;
+            box-sizing: border-box;
+            padding-bottom: 60px;
+            margin: 0;
+            font-family: var(--bs-body-font-family);
+            font-size: var(--bs-body-font-size);
+            font-weight: var(--bs-body-font-weight);
+            line-height: var(--bs-body-line-height);
+            color: var(--bs-body-color);
+            text-align: var(--bs-body-text-align);
+            background-color: var(--bs-body-bg);
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }}
+        code {{
+            font-size: .875em;
+            color: #e83e8c;
+            word-wrap: break-word;
+        }}
+        .text-danger {{
+            --bs-blue: #375a7f;
+            --bs-indigo: #6610f2;
+            --bs-purple: #6f42c1;
+            --bs-pink: #e83e8c;
+            --bs-red: #e74c3c;
+            --bs-orange: #fd7e14;
+            --bs-yellow: #f39c12;
+            --bs-green: #00bc8c;
+            --bs-teal: #20c997;
+            --bs-cyan: #3498db;
+            --bs-white: #fff;
+            --bs-gray: #888;
+            --bs-gray-dark: #303030;
+            --bs-gray-100: #f8f9fa;
+            --bs-gray-200: #ebebeb;
+            --bs-gray-300: #dee2e6;
+            --bs-gray-400: #ced4da;
+            --bs-gray-500: #adb5bd;
+            --bs-gray-600: #888;
+            --bs-gray-700: #444;
+            --bs-gray-800: #303030;
+            --bs-gray-900: #222;
+            --bs-primary: #375a7f;
+            --bs-secondary: #444;
+            --bs-success: #00bc8c;
+            --bs-info: #3498db;
+            --bs-warning: #f39c12;
+            --bs-danger: #e74c3c;
+            --bs-light: #adb5bd;
+            --bs-dark: #303030;
+            --bs-primary-rgb: 55,90,127;
+            --bs-secondary-rgb: 68,68,68;
+            --bs-success-rgb: 0,188,140;
+            --bs-info-rgb: 52,152,219;
+            --bs-warning-rgb: 243,156,18;
+            --bs-danger-rgb: 231,76,60;
+            --bs-light-rgb: 173,181,189;
+            --bs-dark-rgb: 48,48,48;
+            --bs-white-rgb: 255,255,255;
+            --bs-black-rgb: 0,0,0;
+            --bs-body-color-rgb: 255,255,255;
+            --bs-body-bg-rgb: 34,34,34;
+            --bs-font-sans-serif: Lato,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            --bs-font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+            --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+            --bs-body-font-family: var(--bs-font-sans-serif);
+            --bs-body-font-size: 1rem;
+            --bs-body-font-weight: 400;
+            --bs-body-line-height: 1.5;
+            --bs-body-color: #fff;
+            --bs-body-bg: #222;
+            font-family: var(--bs-body-font-family);
+            text-align: var(--bs-body-text-align);
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+            margin-top: 0;
+            margin-bottom: .5rem;
+            font-weight: 500;
+            line-height: 1.2;
+            font-size: calc(1.425rem + 2.1vw);
+            --bs-text-opacity: 1;
+            color: rgba(var(--bs-danger-rgb),var(--bs-text-opacity))!important;
+        }}
+    </style>
+</head>
+<body>            
+    <h1 class="text-danger">An error occurred</h1>
+    <h2 class="text-danger">@Model.Exception.Message</h2>
+    <p><strong>Path:</strong> <code>@Model.Path</code></p>
+    <p><strong>Request ID:</strong> <code>@Model.RequestId</code></p>
+    <p><strong>User:</strong> <code>@Model.UserName</code></p>
+    <p><strong>UID:</strong> <code>@Model.FirebaseUserId</code></p>
+    <p><pre>@Model.Exception.ToString()</pre></p>
+</body>
+</html>

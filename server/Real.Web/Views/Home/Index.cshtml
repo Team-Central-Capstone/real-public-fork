@@ -1,0 +1,21 @@
+﻿@model HomeIndexViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<input asp-for="User.Id" type="hidden" />
+
+<div class="text-center">
+    <h1 class="display-4">REAL: Real People, Real Connections</h1>
+
+    @if (!Model.IsAuthenticated) {
+        <p>Please <a asp-area="" asp-controller="account" asp-action="signin-google">login</a> with your Google account to use the application.</p>
+    } else {
+        if (Model.User?.ProfileLastUpdatedTimestamp.HasValue ?? false) {
+            <p>Welcome back @Model.User.PreferredName!</p>
+        } else {
+            <p>Welcome back! Please <a asp-area="" asp-controller="account" asp-action="profile">complete your profile</a> to continue.</p>
+        }
+    }
+</div>

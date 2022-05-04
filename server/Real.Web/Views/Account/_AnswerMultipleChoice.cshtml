@@ -1,0 +1,28 @@
+@model UserProfileViewModelQuestion
+
+@{
+
+}
+
+<div class="survey-question-answer multiple-choice" data-questionid="@Model.SurveyQuestion.Id">
+
+    @foreach (var answer in Model.SurveyQuestion.Answers) {
+        <div class="form-check">
+            <input  class="form-check-input" 
+                    type="checkbox"
+                    name="Questions[@Model.Index].UserSurveyResponse.SurveyAnswers[-1].Id"
+                    value="@answer.Id" 
+                    @((Model.UserSurveyResponse?.SurveyAnswers?.Any(x => x.Id == answer.Id) ?? false) ? "checked" : "")
+            />
+            <label class="form-check-label" for="Questions[@Model.Index].UserSurveyResponse.SurveyAnswerId">@answer.AnswerText</label>
+        </div>
+    }
+
+    <span class="text-danger field-validation-valid" data-valmsg-for="Questions[@Model.Index].UserSurveyResponse.SurveyAnswerId" data-valmsg-replace="true"></span>    
+
+    @{
+        ViewData["Index"] = Model.Index;
+        await Html.RenderPartialAsync("_Rating", Model.UserSurveyResponse?.UserSurveyResponseWeight, ViewData);
+     }
+
+</div>

@@ -1,0 +1,249 @@
+@model UserProfileViewModel
+
+@{
+    var image = String.Empty;
+    var userId = Model.User.Id;
+    var imageId = Model.UserImage?.Id;
+
+    if (Model.HasImage) {
+        image = Url.Action("GetImage", new { userId = userId, imageId = imageId, });
+    }
+
+    ViewData["Title"] = "Profile";
+    var genders = new SelectList(Model.Genders, nameof(Real.Model.UserGender.Id), nameof(Real.Model.UserGender.Name));
+    @* var users = (List<Real.Model.User>)ViewData["Users"]; *@
+}
+
+@if (!String.IsNullOrEmpty(Model.User.PreferredName)) {
+    <h2>@Model.User.PreferredName's Profile</h2>
+    @* <form asp-action="Profile" method="Get">
+        <select name="Id">
+            @foreach (var u in users) {
+                <option value="@u.Id">@u.DisplayName</option>
+            }
+        </select>
+    </form> *@
+} else {
+    <h2>Set up your profile</h2>
+}
+
+<style type="text/css">
+    img.preview {
+        display: block;
+        max-width:230px;
+        max-height:95px;
+        width: auto;
+        height: auto;
+    }
+    img.profile {
+        display: block;
+        max-width:600px;
+    }
+</style>
+
+<input type="hidden" name="Changes" value="@(Model.Changes ? 1 : 0)" />
+
+<div class="toast-container position-fixed top-0 end-0">
+    <div class="toast fade hide" data-bs-animation="true" data-bs-autohide="true", data-bs-delay="5000" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-success text-white">
+            @* <img src="" class="rounded me-2" alt=""> *@
+            <strong class="me-auto">Success!</strong>
+            <small>Just now</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">Your changes have been updated</div>
+    </div>
+</div>
+
+
+<div>
+    <form class="save-profile" enctype="multipart/form-data" asp-action="SaveProfile" method="post">
+        <input asp-for="User.Id" type="hidden" />
+        <input asp-for="User.FirebaseUserId" type="hidden" />
+        
+        <div class="row">
+            <div class="col">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <div class="form-floating">
+                        <input asp-for="User.FirstName" class="form-control" placeholder="@Html.DisplayNameFor(x => x.User.FirstName)" required />
+                        <label asp-for="User.FirstName"></label>
+                    </div>
+                    <span asp-validation-for="User.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="form-floating">
+                        <input asp-for="User.PreferredName" placeholder="@Html.DisplayNameFor(x => x.User.PreferredName)" class="form-control" />
+                        <label asp-for="User.PreferredName"></label>
+                    </div>
+                    <span asp-validation-for="User.PreferredName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="form-floating">
+                        <input asp-for="User.LastName" placeholder="@Html.DisplayNameFor(x => x.User.LastName)" class="form-control" required />
+                        <label asp-for="User.LastName"></label>
+                    </div>
+                    <span asp-validation-for="User.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="form-floating">
+                        <input asp-for="User.Birthdate" max="@DateTime.Now.AddYears(-18).ToString("yyyy-MM-dd")" min="@DateTime.Now.AddYears(-100).ToString("yyyy-MM-dd")" class="form-control" placeholder="@Html.DisplayNameFor(x => x.User.Birthdate)" required />
+                        <label asp-for="User.Birthdate"></label>
+                    </div>
+                    <span asp-validation-for="User.Birthdate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="form-floating">
+                        <select asp-for="User.UserGenderId" asp-items="@genders" placeholder="@Html.DisplayNameFor(x => x.User.UserGenderId)" class="form-select" required></select>
+                        <label asp-for="User.UserGenderId"></label>
+                    </div>
+                    <span asp-validation-for="User.UserGenderId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button id="update-profile-button" type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            <div class="col">
+                @if (Model.HasImage) {
+                    <img class="profile" src="@image" alt="" />
+                    <a id="ImageRemovePath" class="d-none" asp-area="" asp-controller="Account" asp-action="DeleteImage" asp-route-userId="@userId" asp-route-imageId="@imageId"></a>
+                    <button type="button" class="btn remove-image btn-danger btn-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                            <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                        </svg>
+                    </button>
+                } else {
+                    <a id="FileUploadPath" class="d-none" asp-area="" asp-controller="Account" asp-action="UploadPhoto"></a>
+                    <label asp-for="File">Select picture to upload</label>
+                    <input asp-for="File" class="form-control" accept="image/*" />
+                    <img class="preview" id="imageuploadpreview" src="" alt="" />
+                    <div>
+                        <button type="button" class="btn file-upload btn-sm btn-primary" disabled>Upload picture</button>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-lg-6 col-xl-6">
+                @{ await Html.RenderPartialAsync("_SurveyQuestions", Model.Questions, ViewData); }
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button id="update-profile-button" type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @* <script src="~/lib/moment/dist/moment.js"></script> *@
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+    <script type="text/javascript">
+        $(function () {
+
+            if ($('[name="Changes"]').val() == true) {
+                $('div.toast').toast('show')
+            }
+
+            $('button.remove-image').on('click', e => {
+                if (confirm("Are you sure you want to remove this?")) {
+                    let formData = new FormData();
+
+                    formData.append('__RequestVerificationToken', $('[name="__RequestVerificationToken"]').val());
+                    $.ajax({
+                        type: 'delete',
+                        url: $('#ImageRemovePath').attr('href'),
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        timeout: 60000,
+                        success: function (response) {
+                            $('body').html(response);
+                        },
+                        error: function (xhr) {
+                            alert(xhr.statusText);
+                        }
+                    });
+                }
+            });
+
+            $('input[type="file"]').on('change', e => {
+                let input = $(e.target)[0];
+                if (input.files?.length) {
+                    $('button.file-upload').removeAttr('disabled');
+
+                    let reader = new FileReader();
+                    reader.onload = e => { $('#imageuploadpreview').attr('src', e.target.result); };
+                    reader.readAsDataURL(input.files[0]);
+                    
+                } else {
+                    $('button.file-upload').attr('disabled', 'disabled');
+                }
+            });
+
+            $('button.file-upload').on('click', e => {
+                let input = $('input[type="file"]')[0];
+                let files = input.files;
+                let uid = $('input[name="User.Id"]').val();
+                let fid = $('input[name="User.FirebaseUserId"]').val();
+                let formData = new FormData();
+
+                formData.append('File', files[0], files[0].name);
+                formData.append('User.Id', uid);
+                formData.append('User.FirebaseUserId', fid);
+                formData.append('__RequestVerificationToken', $('[name="__RequestVerificationToken"]').val());
+
+                $.ajax({
+                    type: 'post',
+                    url: $('#FileUploadPath').attr('href'),
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    timeout: 60000,
+                    success: function (response) {
+                        $('form.save-profile').submit();
+                        //$('body').html(response);
+                    },
+                    error: function (xhr) {
+                        alert(xhr.statusText);
+                    }
+                });
+            });
+
+            $('form.save-profile').on('submit', e => {
+                debugger
+
+                $('div.survey-question-answer.multiple-choice[data-questionid]').each((i, obj) => {
+                    let questionid = $(obj).data('questionid');
+
+                    $(`div.survey-question-answer.multiple-choice[data-questionid="${questionid}"] input[type="checkbox"]:checked`).each((i, obj) => {
+                        let name = $(obj).attr('name');
+                        if (name.match(/SurveyAnswers\[.*\]/gi)) {
+                            let startIndex = name.search(/SurveyAnswers\[.*\]/gi);
+                            let endIndex = name.slice(startIndex).search(/\]/gi);
+                            let newName = name.slice(0, startIndex) + `SurveyAnswers[${i}]` + name.slice(startIndex + endIndex + 1);
+
+                            $(obj).attr('name', newName);    
+                        }
+                    });    
+                });
+
+                $('form.save-profile').validate();
+                if ($('form.save-profile').valid()) {
+                    $(e.target).find('input[type="file"]').attr('disabled', 'disabled');
+                    $('#update-profile-button').attr('disabled', true);
+                }
+            });
+        });
+    </script>
+}

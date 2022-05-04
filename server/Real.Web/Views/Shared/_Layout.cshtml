@@ -1,0 +1,98 @@
+﻿@using Real.Web.Areas.API.Controllers;
+
+@{
+    @* var urlRecordLocation = Url.Action(
+        nameof(LocationController.RecordLocationAsync), 
+        nameof(LocationController).Replace("Controller", ""),
+        new { area = "API" }
+    ); *@
+    var urlRecordLocation = "/API/Location";
+    var FirebaseUserId = User.Claims.FirstOrDefault(x => x.Type.Contains("nameidentifier"))?.Value;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - REAL</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+</head>
+<body>
+    <script type="text/javascript">
+        let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        var link = document.createElement('link');
+        link.type = 'text/css';
+        link.rel = 'stylesheet';
+        link.media ='screen,print';
+        link.href = `/lib/bootstrap/dist/css/bootstrap${matched ? '.darkly' : ''}.min.css`;
+
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#NavbarMainMenu" aria-controls="NavbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse flex-sm-row-reverse" id="NavbarMainMenu">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/swagger/index.html">Swagger</a></li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="admin" asp-controller="SurveyQuestions" asp-action="Index">Survey Questions</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-area="admin" asp-controller="ViewProfile" asp-action="Index">View Profiles</a>
+                                <a class="dropdown-item" asp-area="admin" asp-controller="Visualization" asp-action="Index">Vizualization</a>
+                                <a class="dropdown-item" asp-area="admin" asp-controller="Locations" asp-action="Index">Locations</a>
+                                <a class="dropdown-item" asp-area="admin" asp-controller="Analytics" asp-action="Index">Analytics</a>
+                                <a class="dropdown-item" asp-area="admin" asp-controller="Database" asp-action="Index">Database Information</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <small>&copy; @DateTime.Now.Year - CCSU - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></small>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="LoadingModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body d-flex align-items-center">
+                    <strong>Loading...</strong>
+                    <div class="spinner-border ms-auto" role="status"><span class="visually-hidden">Loading...</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/location.js" asp-append-version="true"></script>
+
+    <input type="hidden" id="URL_RecordLocation" value="@urlRecordLocation" />
+    <input type="hidden" id="UID" value="@FirebaseUserId" />
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,44 @@
+@model List<UserProfileViewModelQuestion>
+
+<div class="card survey-question">
+    
+    @for (int i=0; i<Model.Count; ++i) {
+        <div class="card-body" data-questionid="@Model[i].SurveyQuestion.Id" data-index="@Model[i].Index" data-responseid="@Model[i].UserSurveyResponse?.Id">
+            <h5 class="card-title">@Model[i].SurveyQuestion.QuestionText</h5>
+
+            <input type="hidden" name="Questions[@Model[i].Index].SurveyQuestion.QuestionType" value="@Model[i].SurveyQuestion.QuestionType" />
+            <input type="hidden" name="Questions[@Model[i].Index].SurveyQuestion.Id" value="@Model[i].SurveyQuestion.Id" />
+            <input type="hidden" name="Questions[@Model[i].Index].UserSurveyResponse.Id" value="@(Model[i].UserSurveyResponse?.Id ?? 0)" />
+            <input type="hidden" name="Questions[@Model[i].Index].UserSurveyResponse.SurveyQuestionId" value="@(Model[i].UserSurveyResponse?.SurveyQuestionId ?? 0)" />
+
+            @switch (Model[i].SurveyQuestion.QuestionType) {
+                case Real.Model.QuestionType.FreeForm:
+                case Real.Model.QuestionType.FreeFormShort:
+                    await Html.RenderPartialAsync("_AnswerFreeForm", Model[i], ViewData);
+                    break;
+
+                case Real.Model.QuestionType.MultipleChoice:
+                    await Html.RenderPartialAsync("_AnswerMultipleChoice", Model[i], ViewData);
+                    break;
+
+                case Real.Model.QuestionType.Numeric:
+                    await Html.RenderPartialAsync("_AnswerNumeric", Model[i], ViewData);
+                    break;
+
+                case Real.Model.QuestionType.SingleChoice:
+                    await Html.RenderPartialAsync("_AnswerSingleChoice", Model[i], ViewData);
+                    break;
+                    
+                case Real.Model.QuestionType.YesNo:
+                    await Html.RenderPartialAsync("_AnswerYesNo", Model[i], ViewData);
+                    break;
+
+                default:
+                    <div class="text-danger">Unknown question type: @Model[i].SurveyQuestion.QuestionType.ToString()</div>
+                    break;
+            }
+        </div>
+        <hr>
+    }
+    
+</div>

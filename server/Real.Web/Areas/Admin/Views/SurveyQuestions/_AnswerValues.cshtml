@@ -1,0 +1,64 @@
+@model List<Real.Model.SurveyAnswer>
+
+@{
+    var questionType = (Real.Model.QuestionType)ViewData["QuestionType"];
+    var visible = "d-none";
+    if (questionType == QuestionType.SingleChoice || questionType == QuestionType.MultipleChoice) {
+        visible = "";
+    }
+}
+
+<div class="survey-question-answers @visible">
+    <label class="control-label">Responses:</label>
+    <table class="table table-condensed answers">
+        <tbody>
+            @for (var i=0; i<Model.Count; ++i) {
+                <tr>
+                    <td>
+                        <input type="hidden" name="Answers[@i].Id" value="@Model[i].Id" />
+                        <input type="text" name="Answers[@i].AnswerText" value="@Model[i].AnswerText" class="form-control" required />
+                        <input type="hidden" name="Answers[@i].Deleted" value="@Model[i].Deleted" class="deleted" />
+                    </td>
+                    <td>
+                        <button type="button" class="btn remove btn-danger btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                                <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                            </svg>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    @* <button type="button" class="btn add btn-success btn-sm">Add new response</button> *@
+                    <button type="button" class="btn add btn-success btn-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                        </svg>
+                    </button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<script id="newrowtemplate" type="text/template">
+    <tr>
+        <td>
+            <input type="hidden" name="Answers[].Id" value="0" />
+            <input type="text" name="Answers[].AnswerText" value="" class="form-control" required />
+            <input type="hidden" name="Answers[].Deleted" value="" class="deleted" />
+        </td>
+        <td>
+            <button type="button" class="btn remove btn-danger btn-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                    <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                </svg>
+            </button>
+        </td>
+    </tr>
+</script>

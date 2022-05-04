@@ -1,0 +1,135 @@
+@model Real.Model.SurveyQuestion
+
+@{
+    ViewData["Title"] = Model.Id == 0 ? "Create" : "Edit";
+    var buttonLabel = Model.Id == 0 ? "Create" : "Save changes";
+    ViewData["QuestionType"] = Model.QuestionType;
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Survey question</h4>
+<hr />
+
+<form asp-action="Edit">
+
+    <input asp-for="Order" type="hidden" />
+
+    <div class="row">
+        <div class="col-md-4">
+            
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                
+                <div class="form-group">
+                    <label asp-for="QuestionType" class="control-label"></label>
+                    <select asp-for="QuestionType" asp-items="Html.GetEnumSelectList<Real.Model.QuestionType>()" class="form-select"></select>
+                    <span asp-validation-for="QuestionType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="QuestionText" class="control-label"></label>
+                    <input asp-for="QuestionText" class="form-control" />
+                    <span asp-validation-for="QuestionText" class="text-danger"></span>
+                </div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <input type="submit" value="@buttonLabel" class="btn btn-primary" />
+                </div>
+            
+        </div>
+        <div class="col-md-8 ">
+            @{await Html.RenderPartialAsync("_AnswerValues", Model.Answers, ViewData);}
+        </div>
+    </div>
+</form>
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+        $(function () {
+
+
+            $('#QuestionType').on('change', function (e) {
+                let type = $(this).val();
+                debugger
+                switch (type) {
+                    case '@((int)Real.Model.QuestionType.SingleChoice)':
+                    case '@((int)Real.Model.QuestionType.MultipleChoice)':
+                        $('.survey-question-answers').removeClass('d-none');
+                        break;
+                    default:
+                        $('.survey-question-answers').addClass('d-none');
+                        break;
+                }
+            });
+
+
+            $('button.remove').on('click', function (e) {
+                $(this).closest('tr').find('input.deleted[type="hidden"]').val(true);
+                $(this).closest('tr').addClass('d-none');
+            });
+
+            $('button.add').on('click', function (e) {
+                let template = $('#newrowtemplate').html();
+                $('table.answers tbody').append(template);
+            });
+
+
+            $('form').on('submit', function (e) {
+
+                let type = $('#QuestionType').val();
+
+                // radio buttons need to be renumbered
+                if (type == 2 || type == 3) { 
+                    e.preventDefault();
+
+                    // get the answers that need to be renumbered
+                    let answers = $.grep($('form').serializeArray(), (o,i) => { return o.name.startsWith('Answers'); });
+                    let nonAnswers = $.grep($('form').serializeArray(), (o,i) => { return !o.name.startsWith('Answers'); });
+                    let result = nonAnswers;
+
+                    // update the indexes
+                    for (i=0, j=0; i<answers.length; i += 3, ++j) {
+                        let text = answers[i+1].value;
+                        let deleted = answers[i+2].value;
+
+                        if (deleted) {
+                            answers[i].name = `Answers[${j}].Id`;
+                            answers[i+2].name = `Answers[${j}].Deleted`;
+                            result.push(answers[i]);
+                            result.push(answers[i+2]);
+                        } else if (text.length) {
+                            answers[i].name = `Answers[${j}].Id`;
+                            answers[i+1].name = `Answers[${j}].AnswerText`;
+                            result.push(answers[i]);
+                            result.push(answers[i+1]);
+                        } else {
+                            --j; // don't change the index if the field is ignored
+                        }
+                    }
+
+
+                    $.ajax({
+                        type: $('form').attr('method'),
+                        url: $('form').attr('action'),
+                        data: $.param(result),
+                        success: function (response) {
+                            debugger
+                            $('body').html(response); // this wont change the window href, but i don't think that matters
+                        },
+                        error: function (response) {
+                            debugger
+                            alert('An error occurred while saving');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}

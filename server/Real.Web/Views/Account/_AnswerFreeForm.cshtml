@@ -1,0 +1,46 @@
+@model UserProfileViewModelQuestion
+
+<div class="survey-question-answer free-form">
+    <input type="hidden" name="Questions[@Model.Index].UserSurveyResponse.Id" value="@(Model.UserSurveyResponse?.Id ?? 0)" />
+
+
+    @* <div class="form-floating"> *@
+        @switch (Model.SurveyQuestion.QuestionType) {
+            case Real.Model.QuestionType.FreeForm:
+                <textarea 
+                    class="form-control custom-validation" 
+                    name="Questions[@Model.Index].UserSurveyResponse.SurveyAnswerResponse"
+                    rows="5"
+                    data-val="true" 
+                    data-val-maxlength="This field must be 250 characters or less" 
+                    data-val-maxlength-max="250"
+                    maxlength="250"
+                    placeholder=" ">@Model.UserSurveyResponse?.SurveyAnswerResponse</textarea>
+                break;
+
+            case Real.Model.QuestionType.FreeFormShort:
+                <input 
+                    class="form-control custom-validation"
+                    name="Questions[@Model.Index].UserSurveyResponse.SurveyAnswerResponse" 
+                    value="@Model.UserSurveyResponse?.SurveyAnswerResponse"
+                    data-val="true" 
+                    data-val-maxlength="This field must be 100 characters or less" 
+                    data-val-maxlength-max="100"
+                    maxlength="100"
+                    placeholder=" " />
+                break;
+        }
+        <p class="fs-6 fw-light" for="Questions[@Model.Index].UserSurveyResponse.SurveyAnswerResponse">count</p>
+        @* <label class="form-check-label" for="Questions[@Model.Index].UserSurveyResponse.SurveyAnswerResponse">test</label> *@
+    @* </div> *@
+
+    <span class="text-danger field-validation-valid" data-valmsg-for="Questions[@Model.Index].UserSurveyResponse.SurveyAnswerResponse" data-valmsg-replace="true"></span>
+
+    @{
+        ViewData["Index"] = Model.Index;
+        await Html.RenderPartialAsync("_Rating", Model.UserSurveyResponse?.UserSurveyResponseWeight, ViewData);
+    }
+
+</div>
+
+

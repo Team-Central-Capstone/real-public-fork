@@ -1,0 +1,24 @@
+@model Real.Model.UserSurveyResponseWeight
+
+@{
+    var weights = Enum.GetValues(typeof(Real.Model.UserSurveyResponseWeight))
+        .Cast<Real.Model.UserSurveyResponseWeight>()
+        .ToDictionary(t => (int)t, t => t.ToString() );
+    
+    var index = (int?)ViewData["Index"] ?? 0;
+}
+
+<div class="d-flex justify-content-center">
+    @foreach (var key in weights.Keys) {
+        <div class="form-check form-check-inline">
+        <input  class="form-check-input" 
+                type="radio" 
+                name="Questions[@index].UserSurveyResponse.UserSurveyResponseWeight"
+                value="@key" 
+                @( Model.ToString() == weights[key] ? "checked" : "")
+                @* @((Model.UserSurveyResponse?.SurveyAnswers?.Any(x => x.Id == answer.Id) ?? false) ? "checked" : "") *@
+        />
+        <label class="form-check-label" for="Questions[@index].UserSurveyResponse?.UserSurveyResponseWeight">@weights[key]</label>
+    </div>   
+    }
+</div>

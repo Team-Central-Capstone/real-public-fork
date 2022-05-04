@@ -1,0 +1,457 @@
+@model Real.Web.Areas.Admin.Models.Visualization.IndexViewModel
+@using Microsoft.Extensions.Configuration
+
+@inject IConfiguration Configuration
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment HostingEnvironment
+
+@{
+    ViewData["Title"] = "Home Page";
+
+    //var usersDropDown = new SelectList(Model.Users, "Item1", "Item2");
+    //<select asp-for="Users" asp-items="@usersDropDown" placeholder="select name" class="form-select"></select>
+
+    var dev = Configuration["google:maps:development"];
+    var prod = Configuration["google:maps:production"];
+    var key = HostingEnvironment.EnvironmentName == "Development" ? dev : prod;
+    var keyMessage = $"Using {(HostingEnvironment.EnvironmentName == "Development" ? "development" : "Production")} API key";
+
+    var _ = keyMessage;
+}
+
+<input asp-for="User.Id" type="hidden" />
+
+
+<form>
+    <div class="row g-3">
+        <div class="col ">
+            <select for="Users" name="Users" placeholder="select name" class="form-select">
+                <option>Select user...</option>
+                @foreach (var item in Model.Users) {
+                    <option value="@item.Item1">@item.Item2</option>
+                }
+            </select>
+        </div>
+        <div class="col ">
+            <select for="Action" name="Action" placeholder="select action" class="form-select">
+                <option>Select visualization method...</option>
+                <option value="closest">Closest 100 users</option>
+                <option value="walk">Trace location data</option>
+            </select>
+        </div>
+        <div class="col">
+            <button id="btnVisualize" type="button" class="btn btn-primary">Load data</button>
+        </div>
+        <div class="col">
+            <span id="message"></span>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col d-flex justify-content-center" id="map_container">
+        <div id="map" style="height:90vh; width:90vw;"></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <p><small>@keyMessage</small></p>
+    </div>
+</div>
+
+<div class="d-none">
+    <div class="marker-popup">
+        <div class="text-secondary">
+            <h5 class="header"></h5>
+            <div class="body">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @* <script src="https://maps.googleapis.com/maps/api/js?key=@(key)&callback=InitialzeMap&libraries=places,geometry&solution_channel=GMP_QB_locatorplus_v4_cA" async defer></script> *@
+    <script src="https://maps.googleapis.com/maps/api/js?key=@(key)&libraries=places,geometry&solution_channel=GMP_QB_locatorplus_v4_cA" async defer></script>
+    
+
+    <script src="~/js/queue.js"></script>
+
+    <script type="text/javascript">
+        
+        var previousInfoWindow = null;
+        var map = null;
+        var mapMarkers = new Queue(100);
+
+        var darkModeStyle = [
+            { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+            { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+            { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+            { featureType: "administrative.locality", elementType: "labels.text.fill", stylers: [{ color: "#d59563" }], },
+            { featureType: "poi",elementType: "labels.text.fill",stylers: [{ color: "#d59563" }],},
+            { featureType: "poi.park",elementType: "geometry",stylers: [{ color: "#263c3f" }],},
+            { featureType: "poi.park",elementType: "labels.text.fill",stylers: [{ color: "#6b9a76" }],},
+            { featureType: "road",elementType: "geometry",stylers: [{ color: "#38414e" }],},
+            { featureType: "road",elementType: "geometry.stroke",stylers: [{ color: "#212a37" }],},
+            { featureType: "road",elementType: "labels.text.fill",stylers: [{ color: "#9ca5b3" }],},
+            { featureType: "road.highway",elementType: "geometry",stylers: [{ color: "#746855" }],},
+            { featureType: "road.highway",elementType: "geometry.stroke",stylers: [{ color: "#1f2835" }],},
+            { featureType: "road.highway",elementType: "labels.text.fill",stylers: [{ color: "#f3d19c" }],},
+            { featureType: "transit",elementType: "geometry",stylers: [{ color: "#2f3948" }],},
+            { featureType: "transit.station",elementType: "labels.text.fill",stylers: [{ color: "#d59563" }],},
+            { featureType: "water",elementType: "geometry",stylers: [{ color: "#17263c" }],},
+            { featureType: "water",elementType: "labels.text.fill",stylers: [{ color: "#515c6d" }],},
+            { featureType: "water",elementType: "labels.text.stroke",stylers: [{ color: "#17263c" }],},
+        ];
+
+        function delay(delayInms) {
+            return new Promise(resolve => {
+                setTimeout(() => { resolve(2); }, delayInms);
+            });
+        }
+
+        function getCurrentPosition() {
+            return new Promise((resolve, reject) => {
+                navigator.geolocation.getCurrentPosition(
+                    position => {
+                        resolve(position);
+                    }, 
+                    error => {
+                        debugger
+                        reject(error);
+                    }
+                )
+            });
+        }
+
+        async function InitialzeMap(position, end) {
+            debugger
+
+            let userLocation = null;
+
+            if (position) {
+                userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            }
+
+            let darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: userLocation,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                styles: darkMode ? darkModeStyle : null,
+            });
+
+            if (position) {
+                new google.maps.Marker({ position: userLocation, map: map, });
+            }
+            if (end) {
+                end = new google.maps.LatLng(end.coords.latitude, end.coords.longitude);
+                new google.maps.Marker({ position: end, map: map, });
+            }
+        }
+
+        async function AddMapMarkers(coordinates, delayTime) {
+            for (i=0; i<coordinates.length; ++i) {
+                await delay(delayTime ?? 5);
+
+                let msg = `adding marker ${i+1} / ${coordinates.length}`;
+                console.log(msg);
+                $('#message').html(msg);
+
+                let e = coordinates[i];
+                let marker = new google.maps.Marker({ 
+                    position: new google.maps.LatLng(e.Latitude, e.Longitude), 
+                    map: map,
+                    //icon: { url: i < 10 ? 'https://maps.google.com/mapfiles/ms/icons/pink-dot.png' : 'https://maps.google.com/mapfiles/ms/icons/green-dot.png' },
+                    @* icon: { url: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png' }, *@
+                    @* icon: { url: '/lib/map-icons-master/src/icons/male.svg' }, *@
+                    icon: { url: 'https://maps.google.com/mapfiles/ms/micons/blue.png' }, // https://sites.google.com/site/gmapsdevelopment/
+                    locationData: e,
+                    optimized: true,
+                });
+
+                google.maps.event.addListener(marker, 'click', function() {
+                let template = $('div.marker-popup');
+                $(template).find('.header').html(marker.locationData.FirebaseUserId);
+                $(template).find('.body').html(`<p class="">${Math.round(marker.locationData.Distance)} meters away</p>`);
+
+                if (previousInfoWindow)
+                    previousInfoWindow.close();
+
+                let infowindow = new google.maps.InfoWindow({ content: template.html() });
+                    previousInfoWindow = infowindow;
+                    infowindow.open(map, marker);
+                });
+
+                @* let itemToRemove = mapMarkers.enqueue(marker);
+                if (itemToRemove) {
+                    itemToRemove.setMap(null);
+                    itemToRemove = null;
+                } *@
+            }
+
+        }
+
+        // ----------------------------------------------------------------------------------------------------------------------
+        // ----------------------------------------------------------------------------------------------------------------------
+        // ----------------------------------------------------------------------------------------------------------------------
+        // ----------------------------------------------------------------------------------------------------------------------
+
+        $(function() {
+            if (!navigator.geolocation) {
+                alert('W3C Geolocation API is not available');
+                $('select, input, button').attr('disabled', 'disabled');
+                return;
+            }
+
+            $('#btnVisualize').on('click', async e => {
+                $('#LoadingModal').modal('show');
+                let user = $('select[for="Users"] option:selected').attr('value');
+                let action = $('select[for="Action"] option:selected').attr('value');
+
+                if (!user || !action) {
+                    alert('Both user and method are required');
+                    return;
+                }
+debugger
+                switch (action) {
+                    case 'closest':
+                        let position = await getCurrentPosition();
+
+                        $.ajax({
+                            type: 'get',
+                            url: '@Url.Action("GetUsersAroundLocation", "Users", new { area = "API" })',
+                            contentType: 'application/json',
+                            data: {
+                                latitude: position?.coords?.latitude ?? 0, 
+                                longitude: position?.coords?.longitude ?? 0,
+                                userId: user,
+                            },
+                            success: async function (response) {
+                                debugger
+                                await InitialzeMap(position);
+                                await AddMapMarkers(response);
+                                $('#message').html('Complete!');
+                                $('#LoadingModal').modal('hide');
+                            },
+                            error: function (response) {
+                                debugger
+                                alert(response);
+                            },
+                            complete: function () {
+                                $('#LoadingModal').modal('hide');
+                                $('#message').html('Complete!');
+                            }
+                        });
+                        break;
+
+                    case 'walk':
+                        $.ajax({
+                            type: 'get',
+                            url: '@Url.Action("GetAllLocations", "Users", new { area = "API", })',
+                            contentType: 'application/json',
+                            data: {
+                                userId: user,
+                            },
+                            success: async function (response) {
+                                debugger
+                                let position = {
+                                    coords: {
+                                        latitude: response[0].Latitude,
+                                        longitude: response[0].Longitude,
+                                    }
+                                };
+
+                                let end = {
+                                    coords: {
+                                        latitude: response[response.length-1].Latitude,
+                                        longitude: response[response.length-1].Longitude,
+                                    }
+                                };
+
+                                await InitialzeMap(position, end);
+                                $('#LoadingModal').modal('hide');
+
+                                await AddMapMarkers(response, 5);
+                                $('#message').html('Complete!');
+                            },
+                            error: function (response) {
+                                debugger
+                                alert(response);
+                            },
+                            complete: function () {
+                                $('#LoadingModal').modal('hide');
+                            }
+                        });
+                        break;
+                }
+                
+            });
+        });
+    </script>
+
+    @* <script type="text/javascript">
+
+        $(function () {
+            //if ($('input[name="User.Id"]').val()) {
+            //    $('#LoadingModal').modal('show');
+            //}
+        });
+
+        var previousInfoWindow = null;
+        var map = null;
+        var mapMarkers = new Queue(100);
+
+        var darkModeStyle = [
+            { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+            { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+            { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+            { featureType: "administrative.locality", elementType: "labels.text.fill", stylers: [{ color: "#d59563" }], },
+            { featureType: "poi",elementType: "labels.text.fill",stylers: [{ color: "#d59563" }],},
+            { featureType: "poi.park",elementType: "geometry",stylers: [{ color: "#263c3f" }],},
+            { featureType: "poi.park",elementType: "labels.text.fill",stylers: [{ color: "#6b9a76" }],},
+            { featureType: "road",elementType: "geometry",stylers: [{ color: "#38414e" }],},
+            { featureType: "road",elementType: "geometry.stroke",stylers: [{ color: "#212a37" }],},
+            { featureType: "road",elementType: "labels.text.fill",stylers: [{ color: "#9ca5b3" }],},
+            { featureType: "road.highway",elementType: "geometry",stylers: [{ color: "#746855" }],},
+            { featureType: "road.highway",elementType: "geometry.stroke",stylers: [{ color: "#1f2835" }],},
+            { featureType: "road.highway",elementType: "labels.text.fill",stylers: [{ color: "#f3d19c" }],},
+            { featureType: "transit",elementType: "geometry",stylers: [{ color: "#2f3948" }],},
+            { featureType: "transit.station",elementType: "labels.text.fill",stylers: [{ color: "#d59563" }],},
+            { featureType: "water",elementType: "geometry",stylers: [{ color: "#17263c" }],},
+            { featureType: "water",elementType: "labels.text.fill",stylers: [{ color: "#515c6d" }],},
+            { featureType: "water",elementType: "labels.text.stroke",stylers: [{ color: "#17263c" }],},
+        ];
+
+        function delay(delayInms) {
+            return new Promise(resolve => {
+                setTimeout(() => { resolve(2); }, delayInms);
+            });
+        }
+
+        function getCurrentPosition() {
+            return new Promise((resolve, reject) => {
+                navigator.geolocation.getCurrentPosition(
+                    position => {
+                        resolve(position);
+                    }, 
+                    error => {
+                        debugger
+                        reject(error);
+                    }
+                )
+            });
+        }
+
+        async function InitialzeMap(e) {
+            if (navigator.geolocation) {
+
+                let position = await getCurrentPosition();
+                let userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+                let darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 10,
+                    center: userLocation,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    styles: darkMode ? darkModeStyle : null,
+                });
+
+                new google.maps.Marker({ position: userLocation, map: map, });
+
+                $.ajax({
+                    type: 'get',
+                    url: '@Url.Action("GetUsersAroundLocation", "Users", new { area = "API", userId = Model.User?.Id, })',
+                    contentType: 'application/json',
+                    data: {
+                        latitude: position?.coords?.latitude ?? 0, 
+                        longitude: position?.coords?.longitude ?? 0
+                    },
+                    success: function (response) {
+                        AddMapMarkers(response);
+                    },
+                    error: function (response) {
+                        debugger
+                        alert(response);
+                    }
+                });
+            } else {
+                alert('W3C Geolocation API is not available');
+            }
+        }
+
+        async function AddMapMarkers(matchCoordinates) {
+            for (i=0; i<matchCoordinates.length; ++i) {
+                await delay(5);
+
+                console.log(`adding marker ${i+1}`);
+
+                let e = matchCoordinates[i];
+                let marker = new google.maps.Marker({ 
+                    position: new google.maps.LatLng(e.Latitude, e.Longitude), 
+                    map: map,
+                    //icon: { url: i < 10 ? 'https://maps.google.com/mapfiles/ms/icons/pink-dot.png' : 'https://maps.google.com/mapfiles/ms/icons/green-dot.png' },
+                    icon: { url: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png' },
+                    locationData: e,
+                });
+
+                google.maps.event.addListener(marker, 'click', function() {
+                let template = $('div.marker-popup');
+                $(template).find('.header').html(marker.locationData.FirebaseUserId);
+                $(template).find('.body').html(`<p class="">${Math.round(marker.locationData.Distance)} meters away</p>`);
+
+                if (previousInfoWindow)
+                    previousInfoWindow.close();
+
+                let infowindow = new google.maps.InfoWindow({ content: template.html() });
+                    previousInfoWindow = infowindow;
+                    infowindow.open(map, marker);
+                });
+
+                let itemToRemove = mapMarkers.enqueue(marker);
+                if (itemToRemove) {
+                    itemToRemove.setMap(null);
+                    itemToRemove = null;
+                }
+            }
+
+            $('#LoadingModal').modal('hide');
+
+        }
+    </script> *@
+    
+}
+
+
+
+
+
+
+    @* 
+    <script src="~/lib/chartjs/package/dist/chart.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            const ctx = document.getElementById('chart').getContext('2d');
+
+            var data = [
+                { x: 41.78452, y: -72.51987, },
+            ];
+
+            var myChart = new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [
+                        {
+                            label: '109409728062644297175',
+                            data: data,
+                            borderColor: '#2196f3',
+                            backgroundColor: '#2196f3',
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                }
+            });
+        });
+    </script> *@

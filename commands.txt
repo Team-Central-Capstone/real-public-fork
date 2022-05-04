@@ -1,0 +1,20 @@
+
+# migrations
+
+cd server/Real.Data
+dotnet ef migrations add UserProfile
+dotnet ef database update
+
+
+# code generator
+
+cd server/Real.Web
+dotnet aspnet-codegenerator controller --force --model Real.Model.Analytic --controllerName AnalyticsController --dataContext Real.Data.Contexts.CapstoneContext --relativeFolderPath "Areas/Admin/Controllers/" --useAsyncActions --referenceScriptLibraries --useDefaultLayout
+
+dotnet aspnet-codegenerator controller --force --model Real.Model.UserSurveyResponse --controllerName UserSurveysController --dataContext Real.Data.Contexts.CapstoneContext --relativeFolderPath "Areas/API/Controllers/" --useAsyncActions -api
+
+
+# publish for hosting
+
+cd server/Real.Web
+dotnet publish -r linux-x64 --self-contained false

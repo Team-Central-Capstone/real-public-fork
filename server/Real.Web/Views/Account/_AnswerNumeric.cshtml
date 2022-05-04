@@ -1,0 +1,12 @@
+@model UserProfileViewModelQuestion
+
+<div class="survey-question-answer numeric">
+    <input type="hidden" name="Questions[@Model.Index].UserSurveyResponse.Id" value="@(Model.UserSurveyResponse?.Id ?? 0)" />
+    <input class="form-control" type="number" name="Questions[@Model.Index].UserSurveyResponse.SurveyAnswerResponse" value="@(Model.UserSurveyResponse?.SurveyAnswerResponse ?? "")" />
+    <span class="text-danger field-validation-valid" data-valmsg-for="Questions[@Model.Index].UserSurveyResponse.SurveyAnswerResponse" data-valmsg-replace="true"></span>
+
+    @{
+        ViewData["Index"] = Model.Index;
+        await Html.RenderPartialAsync("_Rating", Model.UserSurveyResponse?.UserSurveyResponseWeight, ViewData);
+    }
+</div>
